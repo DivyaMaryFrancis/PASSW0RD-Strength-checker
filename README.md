@@ -29,7 +29,7 @@ A Flask-based web application and CLI tool that checks password strength using t
 1. Clone the repository:
 ```
 git clone https://github.com/DivyaMaryFrancis/PASSW0RD-Strength-checker.git
-cd password-strength-checker
+cd PASSW0RD-Strength-checker
 ```
 2. Create and activate virtual environment:
 ```
