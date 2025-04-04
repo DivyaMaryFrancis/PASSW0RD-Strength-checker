@@ -7,23 +7,15 @@ import json
 import io
 from functools import lru_cache
 from zxcvbn import zxcvbn
-
-
 from datetime import datetime
-
 
 app = Flask(__name__)
 
 # Configure logging
 logging.basicConfig(filename='password_checker.log', level=logging.INFO,
-
-
-
-                   format='%(asctime)s - %(levelname)s - %(message)s')
+                    format='%(asctime)s - %(levelname)s - %(message)s')
 
 class PasswordStrength:
-    """Enhanced password strength checker with all requested features."""
-    
     def __init__(self):
         self.min_password_length = 12
         self.strength_mapping = {
@@ -48,7 +40,6 @@ class PasswordStrength:
 
     @lru_cache(maxsize=1000)
     def check_password_strength(self, password: str) -> dict:
-        """Check password strength with detailed feedback."""
         if len(password) < 8:
             return {
                 "strength": "Too short",
@@ -62,7 +53,7 @@ class PasswordStrength:
         result = zxcvbn(password)
         score = result["score"]
         strength = self.strength_mapping[score]
-        
+
         complexity_issues = []
         if not re.search(r'[A-Z]', password):
             complexity_issues.append("Add uppercase letters")
@@ -86,7 +77,6 @@ class PasswordStrength:
         return feedback
 
     def _get_visual_feedback(self, score: int) -> dict:
-        """Generate visual feedback data for the password meter."""
         colors = ["#dc3545", "#fd7e14", "#ffc107", "#28a745", "#20c997"]
         widths = ["20%", "40%", "60%", "80%", "100%"]
         labels = ["Very Weak", "Weak", "Moderate", "Strong", "Very Strong"]
@@ -97,7 +87,6 @@ class PasswordStrength:
         }
 
     def generate_password(self, length=16, include_special=True) -> str:
-        """Generate a secure random password with customizable options."""
         chars = string.ascii_letters + string.digits
         if include_special:
             chars += string.punctuation
@@ -108,7 +97,6 @@ class PasswordStrength:
                 return password
 
     def export_results(self, data: dict) -> io.BytesIO:
-        """Export results to a JSON file download."""
         export_data = {
             "password_analysis": data,
             "timestamp": datetime.now().isoformat(),
@@ -121,7 +109,11 @@ class PasswordStrength:
 
 password_checker = PasswordStrength()
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
+def home():
+    return render_template('home.html')
+
+@app.route('/index', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         action = request.form.get('action')
@@ -151,11 +143,11 @@ def index():
     
     return render_template('index.html')
 
-@app.route('/get_tips', methods=['GET'])
 
+
+@app.route('/get_tips', methods=['GET'])
 def get_tips():
     return jsonify({"tips": random.sample(password_checker.security_tips, 3)})
 
 if __name__ == '__main__':
     app.run(debug=True)
-    

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Checker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background-color: #f8f9fa;
+            padding: 5rem 0;
+            border-radius: 10px;
+            margin-top: 3rem;
+        }
+        .cta-button {
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #0d6efd;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero-section text-center">
+            <h1 class="display-4">Secure Your Accounts</h1>
+            <p class="lead">Check your password strength with our advanced analyzer</p>
+            
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-8">
+                    <p>Our password strength checker uses advanced algorithms to evaluate your passwords against common attacks and provides detailed feedback to help you improve your online security.</p>
+                    
+                    <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg cta-button">
+                        Check Password Strength Now
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-4 text-center">
+                <div class="feature-icon">🔒</div>
+                <h3>Advanced Analysis</h3>
+                <p>Get detailed feedback on your password's vulnerabilities and estimated crack time.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="feature-icon">⚡</div>
+                <h3>Instant Results</h3>
+                <p>Real-time evaluation as you type with visual strength indicators.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="feature-icon">🛡️</div>
+                <h3>Security Tips</h3>
+                <p>Learn how to create stronger passwords with our expert recommendations.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

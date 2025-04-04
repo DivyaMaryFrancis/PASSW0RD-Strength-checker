@@ -49,6 +49,16 @@
     </style>
 </head>
 <body class="bg-light">
+    <!-- Add this navigation at the top of your existing checker.html 
+<nav class="navbar bg-light mb-4">
+    <div class="container">
+        <a class="navbar-brand" href="{{ url_for('home') }}">
+            ← Back to Home
+        </a>
+    </div>
+</nav>-->
+
+<!-- Your existing password checker content below -->
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-lg-8">
@@ -294,7 +304,7 @@
                     return;
                 }
 
-                fetch('/', {
+                fetch('/index', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
@@ -318,7 +328,7 @@
                 const length = elements.lengthRange.value;
                 const includeSpecial = elements.includeSpecial.checked;
                 
-                fetch('/', {
+                fetch('/index', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
@@ -420,7 +430,7 @@
                     timestamp: new Date().toISOString()
                 };
                 
-                fetch('/', {
+                fetch('/index', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
