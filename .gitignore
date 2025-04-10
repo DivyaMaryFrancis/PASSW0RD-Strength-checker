@@ -1,1 +1,4 @@
 venv/
+password_checker.log
+__pycache__/
+*.pyc
