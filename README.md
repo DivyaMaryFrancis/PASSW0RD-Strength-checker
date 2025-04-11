@@ -6,27 +6,27 @@ A Flask-based web application that checks password strength using the zxcvbn alg
 
 🔗 **Live Demo**: [passsafely](https://passsafely.pythonanywhere.com/)
 
-## 🚀 Features
+##  Features
 
-### 🔐 Password Strength Analysis
+###  Password Strength Analysis
 - Real-time strength meter with color-coded feedback
 - Crack time estimation
 - Detailed improvement suggestions
 - Common and banned password detection
 
-### 🔑 Password Generation
+###  Password Generation
 - Custom length (8–64 characters)
 - Configurable character sets
 - One-click copy to clipboard
 
-### 🖥️ Web Interface
+###  Web Interface
 - Responsive and user-friendly design
 - Password strength visualization
 - Secure password generation with export to JSON
 - Useful security tips display
 
 
-## 🛠️ Installation
+##  Installation
 
 1. **Clone the repository:**
    ```bash
@@ -54,7 +54,7 @@ A Flask-based web application that checks password strength using the zxcvbn alg
    ```
    Then open your browser and go to [http://localhost:5000](http://localhost:5000)
 
-## 📊 Password Strength Criteria
+##  Password Strength Criteria
 
 - Minimum recommended length: 12 characters
 - Must include:
@@ -65,7 +65,7 @@ A Flask-based web application that checks password strength using the zxcvbn alg
 - Uses **zxcvbn** for pattern-based analysis
 
 
-## 📦 Dependencies
+##  Dependencies
 
 - Python 3.x
 - Flask
@@ -73,6 +73,5 @@ A Flask-based web application that checks password strength using the zxcvbn alg
 
 ---
 
-## 🙏 Acknowledgments
 
 Referenced implementation logic from [Sharma-IT/password-strength-checker](https://github.com/Sharma-IT/password-strength-checker).
